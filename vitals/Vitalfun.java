@@ -1,4 +1,3 @@
-
 package vitals;
 
 public class Vitalfun {
