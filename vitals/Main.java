@@ -4,7 +4,6 @@ import vitals.Vitalfun;
 
 public class Main {
    
-
     public static void main(String[] args) {
         
          Vitalfun x = new Vitalfun();
