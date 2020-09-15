@@ -8,11 +8,6 @@ public class Main {
         
          Vitalfun x = new Vitalfun();
          x.setAlert(new AlertbySound());
-        //These are cases to test checkvitallimit function
-        
-        /*assert(checkVitalLimit(66, 75, 100)) == false;
-        assert(checkVitalLimit(123, 55, 95)) == false;
-        assert(checkVitalLimit(80, 70, 120)) == true;*/
         
         assert(x.vitalsAreOk(60, 80, 50)) ==  false; //bp value less than lowerlimit
         assert(x.vitalsAreOk(160, 95, 70)) == false; //bp value more than upperlimit
