@@ -1,20 +1,30 @@
 package vitals;
 
+import vitals.Vitalfun;
+
 public class Main {
-    static boolean vitalsAreOk(float bpm, float spo2, float respRate) {
-        if(bpm < 70 || bpm > 150) {
-            return false;
-        } else if(spo2 < 90) {
-            return false;
-        } else if(respRate < 30 || respRate > 95) {
-            return false;
-        }
-        return true;
+   
+    public static void main(String[] args) {
+        
+         Vitalfun x = new Vitalfun();
+         x.setAlert(new AlertbySound());
+        
+        assert(x.vitalsAreOk(60, 80, 50)) ==  false; //bp value less than lowerlimit
+        assert(x.vitalsAreOk(160, 95, 70)) == false; //bp value more than upperlimit
+
+        assert(x.vitalsAreOk(100, 20, 70)) == false; //spo2 value less than lower limit
+        assert(x.vitalsAreOk(80, 120, 70)) == false; // spo2 value more than upperlimit
+
+        assert(x.vitalsAreOk(115, 95, 25)) == false; //Resprate value less than lowerlimit
+        assert(x.vitalsAreOk(85, 95, 98)) == false;// Resprate value more than upperlimit
+        
+        x.setAlert(new AlertbySMS());
+       
+        assert(x.vitalsAreOk(180, 120, 116)) == false; // all vitals are above upper limit
+        assert(x.vitalsAreOk(60, 25, 29)) == false;  //all vitals are below lower limit
+        
+        System.out.println("Vitals checked");
+ 
     }
 
-    public static void main(String[] args) {
-        assert(vitalsAreOk(80, 97, 40) == true);
-        assert(vitalsAreOk(60, 98, 40) == false);
-        System.out.println("Some more tests needed");
-    }
 }
