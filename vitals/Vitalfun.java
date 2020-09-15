@@ -25,7 +25,7 @@ public class Vitalfun {
     
     boolean isBpOk(float bpm)
     {
-        if (checkVitalLimit( bpm , bp_limit[0] , bp_limit[1]))
+        if (isVitalsInLimit( bpm , bp_limit[0] , bp_limit[1]))
         {
             return true;
         }
@@ -36,7 +36,7 @@ public class Vitalfun {
     
     boolean isSpo2Ok(float spo2)
     {
-        if(checkVitalLimit(spo2, so2_limit[0] , so2_limit[1]) )
+        if(isVitalsInLimit(spo2, so2_limit[0] , so2_limit[1]) )
         {
             return true;
         }
@@ -46,7 +46,7 @@ public class Vitalfun {
     
     boolean isRespOk(float respRate)
     {
-       if (checkVitalLimit(respRate, resp_limit[0] , resp_limit[1]) )
+       if (isVitalsInLimit(respRate, resp_limit[0] , resp_limit[1]) )
        {
            return true;
        }
@@ -55,7 +55,7 @@ public class Vitalfun {
     }
     
     
-    boolean checkVitalLimit(float val, int low, int high)
+    boolean isVitalsInLimit(float val, int low, int high)
     {
         if(val < (float)low)
         {
